@@ -6,7 +6,7 @@
 
 ## 3 - Instalación de GDB
 
-## 4 - ÓRDENES GDB
+## 4 - Órdenes GDB
 
 
-## 5 - MALAS PRÁCTICAS
+## 5 - Malas prácticas
