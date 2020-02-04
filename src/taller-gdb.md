@@ -147,23 +147,28 @@ o cargar gdb con --args
 
 ### Establecer puntos de parada (breakpoints): break
 
+### Consultar información: info
+
+### Activar y desactivar puntos de parada: enable y desable
+
 ### Limpiar puntos de parada: clear y delete
 
-### Consultar información: info
 
 ### Ejecutar: run
 
 ### Continuar: continue
 
-### Ir paso a paso: step y next
+### Ejecutar por pasos: step, next y finish
 
 step -> entra en subrutinas
 
 next -> no entra en subrutinas
 
+finish -> ejecuta hasta que acabe la función
+
 ### Consultar pila de llamadas: where
 
-### Consultar el valor de variables: print 
+### Consultar el valor de variables: print
 
 ### Modificar el valor de variables: set
 
