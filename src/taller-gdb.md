@@ -172,4 +172,6 @@ finish -> ejecuta hasta que acabe la función
 
 ### Modificar el valor de variables: set
 
+### Llevar registro de variables: display
+
 ## 6 - Malas prácticas
