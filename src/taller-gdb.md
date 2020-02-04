@@ -97,7 +97,74 @@ gdb --version
 
 El primer paso para usar GDB es activar el flag para compilar con símbolos de depuración.
 
+Cuando compilamos el compilador se encarga de eliminar y modificar el código para que sea lo más rápido posible (aún más si utilizamos la opción `-O`), sin embargo, estas modificaciones eliminarán el código y las diferentes modificaciones harán que sea más difícil comparar el binario resultante con el código del que procede. Compilar con esta flag nos permitirá que el código del programa esté adjunto en el binario para que sea posible consultarlo con una herramienta de depuración.
+
+A este proceso se le llama compilar con símbolos de depuración, y (si usamos un compilador de GNU) es tan facil como añadir el flag `-g`.
+
+Ejemplo compilando un fichero en C++:
+
+```sh
+g++ hola.cpp -o hola -g
+```
+
+Que contiene el siguiente código en C++:
+
+```c++
+#include <iostream>
+
+int main(int argc, char ** argv){
+
+	std::cout << "Hola mundo" << std::endl;
+
+	return 0;
+
+}
+```
+
+Una vez obtenemos el binario `hola` abrimos GDB con este fichero:
+
+```sh
+gdb hola
+```
 
 ## 5 - Órdenes GDB
+
+### Salir de GDB: quit
+
+Salir de GDB es muy simple, basta con usar el fin de fichero (EOF, en UNIX y GNU/Linux con Ctrl+D) o escribir el comando:
+
+```gdb
+quit
+```
+
+### Establecer argumentos: set args
+
+set args
+
+o cargar gdb con --args
+
+### Mostrar código: list
+
+### Establecer puntos de parada (breakpoints): break
+
+### Limpiar puntos de parada: clear y delete
+
+### Consultar información: info
+
+### Ejecutar: run
+
+### Continuar: continue
+
+### Ir paso a paso: step y next
+
+step -> entra en subrutinas
+
+next -> no entra en subrutinas
+
+### Consultar pila de llamadas: where
+
+### Consultar el valor de variables: print 
+
+### Modificar el valor de variables: set
 
 ## 6 - Malas prácticas
