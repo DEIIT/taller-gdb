@@ -36,9 +36,7 @@ Nosotros para realizar los distintos ejemplos usaremos C++, aunque es indiferent
 
 Puedes instalar GDB en prácticamente todos los sistemas UNIX, como GNU/Linux, \*BSD o MacOS además de en Microsoft Windows.
 
-Puedes encontrar el código de GDB para compilarlo en este enlace: [https://ftp.gnu.org/gnu/gdb/](https://ftp.gnu.org/gnu/gdb/).
-
-Aún así nosotros recomendamos instalarlo a través de un instalador de paquetes:
+Nosotros recomendamos instalarlo a través de un instalador de paquetes:
 
 ### Distribuciones basadas en Debian
 
@@ -63,18 +61,20 @@ sudo pacman -S gdb
 
 Si utilizas cualquier otro sistema operativo que en sus repositorios no este disponible GDB siempre puedes compilarlo e instalarlo a mano.
 
-Una vez descargado el código de la página citada sigue estos pasos:
+Puedes encontrar el código de GDB para compilarlo en este enlace: [https://ftp.gnu.org/gnu/gdb/](https://ftp.gnu.org/gnu/gdb/).
+
+Una vez descargado el código sigue estos pasos:
 
 - Extraer el paquete
 
 ```sh
-tar -xvzf gdb.tar.gz
+tar -xvzf gdb-<version>.tar.gz
 ```
 
 - Configurar y compilarlo
 
 ```sh
-cd gdb
+cd gdb-<version>
 ./configure
 make
 ```
@@ -82,7 +82,7 @@ make
 - Instalarlo
 
 ```sh
-make install
+sudo make install
 ```
 
 Por defecto se instalará en `/usr/local/bin` y `/usr/local/lib`
@@ -94,6 +94,9 @@ gdb --version
 ```
 
 ## 4 - Requisitos de GDB
+
+El primer paso para usar GDB es activar el flag para compilar con símbolos de depuración.
+
 
 ## 5 - Órdenes GDB
 
