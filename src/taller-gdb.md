@@ -30,6 +30,8 @@ Con GDB podrás depurar programas escritos en los siguientes lenguajes:
 - Pascal
 - Rust
 
+Nosotros para realizar los distintos ejemplos usaremos C++, aunque es indiferente el lenguaje usado.
+
 ## 3 - Instalación de GDB
 
 Puedes instalar GDB en prácticamente todos los sistemas UNIX, como GNU/Linux, \*BSD o MacOS además de en Microsoft Windows.
