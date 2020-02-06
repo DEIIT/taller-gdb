@@ -177,14 +177,66 @@ list fichero2.cpp:20,40
 
 Esto nos mostrará el intervalo de lineas de la 20 a la 40 del fichero `fichero2.cpp`.
 
+Como abreviatura puedes usar `l`.
+
+```gdb
+l 20,40
+```
+
+Esto es equivalente a:
+
+```gdb
+list 20,40
+```
+
 ### Establecer puntos de parada (breakpoints): break
+
+Para depurar un programa una de las opciones más útiles que nos ofrece GDB son los puntos de parada (breakpoints).
+
+Los puntos de parada nos permiten detener la ejecución del programa en el punto que nosotros queramos y si se cumplen ciertas condiciones.
+
+Para establecer un punto de parada podemos usar el comando `break` seguido del número de la linea o el nombre de la función.
+
+Por ejemplo, para poner un punto de parada en la linea 12:
+
+```gdb
+break 12
+```
+
+Para poner un punto de parada en la función `prueba`:
+
+```gdb
+break prueba
+```
+
+
+Al igual que con la orden `list`, si nuestro proyecto tiene distintos ficheros podemos establecer un punto de parada en una función de otro fichero usando "`:`":
+
+```gdb
+break fichero2.cpp:prueba
+```
+
+
+Cada vez que se alcance un punto de parada GDB nos avisará del número de veces que se ha alcanzado es punto.
+
+
+Como abreviatura podemos usar `br`:
+
+```gdb
+br fichero2.cpp:prueba
+```
 
 ### Ejecutar: run
 
 ### Continuar: continue
 
+### Consultar información: info
+
 ### Activar y desactivar puntos de parada: enable y desable
 
+### Limpiar puntos de parada: clear y delete
+
+### Consultar el valor de variables: print
 
 ### Modificar el valor de variables: set
 
@@ -196,11 +248,6 @@ set args
 o cargar gdb con --args
 
 
-
-### Consultar información: info
-
-
-### Limpiar puntos de parada: clear y delete
 
 
 
@@ -214,7 +261,6 @@ finish -> ejecuta hasta que acabe la función
 
 ### Consultar pila de llamadas: where
 
-### Consultar el valor de variables: print
 
 ### Llevar registro de variables: display
 
