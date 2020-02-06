@@ -248,7 +248,7 @@ También es posible usar los operadores para redireccionar la salida y entrada("
 run > salida.txt
 ```
 
-Como abreviatura pueder usar `br`:
+Como abreviatura puedes usar `br`:
 
 ```gdb
 r
@@ -256,6 +256,27 @@ r
 
 
 ### Continuar: continue
+
+Con el comando `continue` podemos reanudar la ejecución del programa. Se ejecutará con normalidad hasta que encuentre el siguiente punto de parada o finalice.
+
+```gdb
+continue
+```
+
+Si esperamos llegar a un punto de parada más de una vez (está dentro de un bucle, o es una función que se llamará varias veces) y nos interesa detener la ejecución cuando llegue a la N-ésima vez a dicho punto de parada podemos usar un entero como parámetro de `continue` de forma que continuará la ejecución del programa sin parar en este punto de parada (puede parar en otros) hasta la N-ésima vez que lo alcance.
+
+```gdb
+continue 5
+```
+
+
+Como abreviatura puedes usar `c`:
+
+```gdb
+c 5
+```
+
+
 
 ### Consultar información: info
 
