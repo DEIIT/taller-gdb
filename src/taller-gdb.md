@@ -137,26 +137,72 @@ Salir de GDB es muy simple, basta con usar el fin de fichero (EOF, en UNIX y GNU
 quit
 ```
 
+### Mostrar código: list
+
+Dentro de GDB podemos consultar el código que estemos usando.
+
+Una forma básica es ejecutar solo el comando `list`
+
+```gdb
+list
+```
+
+Con esto podemos consultar 10 lineas alrededor del main.
+
+Otra opción es usar un parámetro, que indicará el número de linea a consultar.
+
+```gdb
+list 20
+```
+
+Con esto consultaremos 10 lineas alrededor de la linea 20.
+
+Si queremos ver un rango de lineas, basta con separarlas con una coma, por ejemplo, para consultar de la linea 20 a la 40 basta con ejecutar:
+
+```gdb
+list 20,40
+```
+
+Otra opción es usar los nombres de las funciones, por ejemplo, si queremos ver el código de la función `prueba` podemos ejecutar:
+
+```gdb
+list prueba
+```
+
+En caso de que nuestro proyecto tenga más de un fichero podemos seleccionar el fichero donde consultar si antes de la linea, el rango de lineas o la función especificamos el nombre del fichero seguido de "`:`".
+
+```gdb
+list fichero2.cpp:20,40
+```
+
+Esto nos mostrará el intervalo de lineas de la 20 a la 40 del fichero `fichero2.cpp`.
+
+### Establecer puntos de parada (breakpoints): break
+
+### Ejecutar: run
+
+### Continuar: continue
+
+### Activar y desactivar puntos de parada: enable y desable
+
+
+### Modificar el valor de variables: set
+
+
 ### Establecer argumentos: set args
 
 set args
 
 o cargar gdb con --args
 
-### Mostrar código: list
 
-### Establecer puntos de parada (breakpoints): break
 
 ### Consultar información: info
 
-### Activar y desactivar puntos de parada: enable y desable
 
 ### Limpiar puntos de parada: clear y delete
 
 
-### Ejecutar: run
-
-### Continuar: continue
 
 ### Ejecutar por pasos: step, next y finish
 
@@ -169,8 +215,6 @@ finish -> ejecuta hasta que acabe la función
 ### Consultar pila de llamadas: where
 
 ### Consultar el valor de variables: print
-
-### Modificar el valor de variables: set
 
 ### Llevar registro de variables: display
 
