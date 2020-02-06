@@ -220,13 +220,40 @@ break fichero2.cpp:prueba
 Cada vez que se alcance un punto de parada GDB nos avisará del número de veces que se ha alcanzado es punto.
 
 
-Como abreviatura podemos usar `br`:
+Como abreviatura puedes usar `br`:
 
 ```gdb
 br fichero2.cpp:prueba
 ```
 
 ### Ejecutar: run
+
+Con el comando `run` ejecutaremos el programa.
+
+El programa se ejecutará de forma normal, detendrá su ejecución si encuentra un punto de parada y finalizará la ejecución una vez acabe el programa (cuidado, el llegar a un punto de parada no implica finalizar el programa, simplemente detendrá la ejecución de instrucciones, y como veremos en la siguiente sección, continuará desde este punto).
+
+```gdb
+run
+```
+
+Si tu programa necesita argumentos, estos se pueden pasar como argumentos a `run`.
+
+```gdb
+run arg1 arg2 arg3
+```
+
+También es posible usar los operadores para redireccionar la salida y entrada("`>`", "`<`" o "`>>`").
+
+```gdb
+run > salida.txt
+```
+
+Como abreviatura pueder usar `br`:
+
+```gdb
+r
+```
+
 
 ### Continuar: continue
 
@@ -265,3 +292,5 @@ finish -> ejecuta hasta que acabe la función
 ### Llevar registro de variables: display
 
 ## 6 - Malas prácticas
+
+## 7 - Otros programas de depuración
