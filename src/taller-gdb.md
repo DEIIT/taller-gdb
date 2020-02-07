@@ -254,6 +254,91 @@ Como abreviatura puedes usar `r`:
 r
 ```
 
+### Consultar el valor de variables: print
+
+Una vez hemos ejecutado el programa y hemos llegado a un punto de parada podemos consultar el valor de las distintas variables con el comando `print`.
+
+Por ejemplo, en el siguiente código:
+
+
+```c++
+#include <iostream>
+
+int main(int argc, char ** argv){
+
+	int entero = 7;
+	float decimal = 23.45f;
+
+	std::cout << "Hola mundo" << std::endl;
+
+	std::cout << "Mostramos un entero: " << entero << std::endl;
+
+	std::cout << "Mostramos un decimal: " << decimal << std::endl;
+
+	int entero_inutil = 2;
+
+
+	return 0;
+
+}
+```
+
+Si establecemos un punto de parada en la línea en la que mostramos un entero:
+
+```gdb
+break 10
+```
+
+Y ejecutamos el programa:
+
+```gdb
+run
+```
+
+El programa se detendrá en la linea 10, sin ejecutar el contenido de esta. En este punto podemos preguntar a GDB el valor de las distintas variables del programa con `print`:
+
+```gdb
+print entero
+```
+
+De parte de GDB obtendremos:
+
+```gdb
+$1 = 50
+```
+
+Sin embargo, si ejecutamos:
+
+```gdb
+print entero_inutil
+```
+
+De parte de GDB obtendremos:
+
+```gdb
+No symbol "entero_inutil" in current context.
+```
+
+Ya que en el contexto actual de la ejecución todavía no se ha creado la variable `entero_inutil`.
+
+
+### Modificar el valor de variables: set
+
+GDB también nos permite modificar el valor de las distintas variables con la orden `set`.
+
+Siguiendo el ejemplo anterior, con la ejecución parada en la linea 10, ejecutamos:
+
+```gdb
+set decimal=99.2f
+```
+
+Y continuamos la ejecución con:
+
+```gdb
+continue
+```
+
+El `cout` de decimal nos mostrará 99.2.
 
 ### Continuar: continue
 
@@ -277,16 +362,26 @@ c 5
 ```
 
 
-
 ### Consultar información: info
+
+El comando `info` nos servirá como un comando genérico para consultar información, con este comando podremos consultar de todo tipo de información, desde CPU's, información sobre la memoria del sistema, las macros disponibles, etc. Uno de los más importantes será la información sobre los puntos de parada (`breakpoints`).
+
+
+```gdb
+info br
+```
+
+Otro ejemplo, en el que consultamos las CPU's del sistema:
+
+```gdb
+info os cpus
+```
+
 
 ### Activar y desactivar puntos de parada: enable y desable
 
 ### Limpiar puntos de parada: clear y delete
 
-### Consultar el valor de variables: print
-
-### Modificar el valor de variables: set
 
 
 ### Establecer argumentos: set args
