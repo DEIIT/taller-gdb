@@ -248,7 +248,7 @@ También es posible usar los operadores para redireccionar la salida y entrada("
 run > salida.txt
 ```
 
-Como abreviatura puedes usar `br`:
+Como abreviatura puedes usar `r`:
 
 ```gdb
 r
