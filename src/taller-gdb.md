@@ -371,6 +371,8 @@ El comando `info` nos servirá como un comando genérico para consultar informac
 info br
 ```
 
+Vemos como con este comando GDB nos mostrará información sobre los puntos de parada, en orden, el número de parada, el tipo, si el punto de parada debe permanecer, si está activado, la dirección en hexadecimal del punto de parada (para depurar ensamblador) y por último en que función y linea está este punto de parada. Por defecto el punto de parada estará activado.
+
 Otro ejemplo, en el que consultamos las CPU's del sistema:
 
 ```gdb
@@ -378,10 +380,70 @@ info os cpus
 ```
 
 
-### Activar y desactivar puntos de parada: enable y desable
+### Llevar registro de variables: display y undisplay
+
+En muchas ocasiones necesitamos consultar el valor de ciertas variables y expresiones de forma constante. GDB nos ofrece la opción del comando `display`. Con este comando, cada vez que se detenga la ejecución nos mostrará el valor de las variables o expresiones sobre las que ejecutemos este comando.
+
+```gdb
+display entero
+```
+
+```gdb
+display entero > decimal
+```
+
+Y para dejar de mostrar una variable usaremos el comando `undisplay`:
+
+```gdb
+undisplay entero
+```
+
+
+### Activar y desactivar puntos de parada: enable y disable
+
+Como hemos visto con la orden `info br` los puntos de parada pueden estar activados o desactivados, el comando `enable` y `disable`.
+
+El comando `disable` nos permitirá desactivar puntos de parada o expresiones de `display` sin eliminarlas, es decir, las podremos reactivar usando el comando `enable`.
+
+Algunos ejemplos:
+
+```gdb
+disable display entero
+```
+
+```gdb
+disable breakpoints 2
+```
+
+Para volver a activarlos podemos usar el comando `enable`:
+
+```gdb
+enable display entero
+```
+
+```gdb
+enable breakpoints 2
+```
+
+Además el comando `enable` nos permite más flexibilidad a la hora de activar los puntos de parada:
+
+- Activar el punto de N paradas: `enable count N <numero_breakpoint>`
+
+Con esto activaremos el punto de parada para las siguientes N paradas. Por ejemplo, para activar el punto de parada 2 durante las 3 siguientes paradas:
+
+```gdb
+enable count 3 2
+```
+
+- Activar un punto de parada y borrarlo en la siguiente parada: `enable delete <numero_breakpoint>`
+
+GDB nos permite activar un punto de parada y que este sea borrado la siguiente vez que lleguemos a el:
+
+```gdb
+enable delete 1
+```
 
 ### Limpiar puntos de parada: clear y delete
-
 
 
 ### Establecer argumentos: set args
@@ -405,7 +467,6 @@ finish -> ejecuta hasta que acabe la función
 ### Consultar pila de llamadas: where
 
 
-### Llevar registro de variables: display
 
 ## 6 - Malas prácticas
 
