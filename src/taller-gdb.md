@@ -343,6 +343,8 @@ El `cout` de decimal nos mostrará 99.2.
 
 #### Establecer argumentos: set args
 
+\
+\
 Con la orden `set` podemos establecer los parámetros de ejecución, evitando tener que ponerlos en la orden `run` cada vez que lo ejecutemos.
 
 ```gdb
@@ -415,6 +417,8 @@ Ya hemos visto como detener la ejecución y como consultar el valor de las disti
 
 #### step
 
+\
+
 Con esta orden continuaremos la ejecución de nuestro programa linea a linea con la característica de que si encuentra una llamada a una subrutina entrará en esta y continuará con su ejecución.
 
 Podemos usarla sin parámetros, lo que avanzará una linea de código, o con un entero como parámetro, con lo que avanzará tantas lineas como le pasemos por parametro.
@@ -426,6 +430,8 @@ step 4
 ```
 
 #### next
+
+\
 
 Al igual que con `step` continuaremos la ejecución linea a linea, con la diferencia de que usando `next` no entraremos en las llamadas a subrutinas, es decir, se ejecutará la subrutina y continuará en la misma rutina en la que estaba.
 
@@ -440,6 +446,8 @@ next 4
 ```
 
 #### finish
+
+\
 
 Con esta orden continuaremos la ejecución hasta finalizar la subrutina en la que estemos. Esto quiere decir que aunque no exista un punto de parada al final de dicha subrutina si se detendrá la ejecución.
 
@@ -501,6 +509,8 @@ Para eliminar puntos de parada podemos usar dos ordenes, `clear` y `delete`.
 
 #### clear
 
+\
+
 El uso de la orden `clear` es muy simple: `clear <linea_breakpoint>`
 
 Por ejemplo, para eliminar el punto de parada en la linea 20 del fichero `prueba.cpp`:
@@ -518,6 +528,9 @@ clear
 Hay que tener en cuenta que `clear` no funciona con el número del punto de parada, es necesario especificar la linea donde se encuentra
 
 #### delete
+
+\
+\
 
 Con delete si podremos eliminar puntos de parada especificando el número.
 
