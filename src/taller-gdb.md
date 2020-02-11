@@ -435,7 +435,7 @@ Con esto activaremos el punto de parada para las siguientes N paradas. Por ejemp
 enable count 3 2
 ```
 
-- Activar un punto de parada y borrarlo en la siguiente parada: `enable delete <numero_breakpoint>`
+- Activar un punto y eliminarlo en la siguiente parada: `enable delete <numero_breakpoint>`
 
 GDB nos permite activar un punto de parada y que este sea borrado la siguiente vez que lleguemos a el:
 
@@ -443,7 +443,46 @@ GDB nos permite activar un punto de parada y que este sea borrado la siguiente v
 enable delete 1
 ```
 
-### Limpiar puntos de parada: clear y delete
+### Limpiar puntos de parada y expresiones de display: clear y delete
+
+Hemos visto como activar y desactivar los puntos de parada, sin embargo no hemos visto como eliminarlos.
+
+Para eliminar puntos de parada podemos usar dos ordenes, `clear` y `delete`.
+
+#### clear
+
+El uso de la orden `clear` es muy simple: `clear <linea_breakpoint>`
+
+Por ejemplo, para eliminar el punto de parada en la linea 20 del fichero `prueba.cpp`:
+
+```gdb
+clear prueba.cpp:20
+```
+
+Si queremos eliminar todos los puntos de parada podemos ejecutar esta orden sin argumentos:
+
+```gdb
+clear
+```
+
+Hay que tener en cuenta que `clear` no funciona con el número del punto de parada, es necesario especificar la linea donde se encuentra
+
+#### delete
+
+Con delete si podremos eliminar puntos de parada especificando el número.
+
+Por ejemplo para eliminar el punto de parada número 2:
+
+```gdb
+delete 2
+```
+
+La orden `delete` también nos permitirá eliminar expresiones o variables que estén afectadas por `display`:
+
+```gdb
+delete display entero
+```
+
 
 
 ### Establecer argumentos: set args
