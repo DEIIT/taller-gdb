@@ -493,7 +493,7 @@ Con esto activaremos el punto de parada para las siguientes N paradas. Por ejemp
 enable count 3 2
 ```
 
-- Activar un punto y eliminarlo en la siguiente parada: `enable delete <numero_breakpoint>`
+- Activar un punto y eliminarlo en la siguiente parada: `enable delete <num_breakpoint>`
 
 GDB nos permite activar un punto de parada y que este sea borrado la siguiente vez que lleguemos a el:
 
@@ -547,15 +547,15 @@ delete display entero
 ```
 
 
-
-
-
-
-
-
-
-
 ### Consultar pila de llamadas: where
+
+Otra de las funciones más interesantes que nos ofrece GDB es el comando `where`. Este comando nos dará información de la pila de llamadas y donde nos encontramos en la ejecución del programa, por ejemplo, si `funcionA` es llamada desde distintos lugares, por ejemplo `main` y `prueba` este comando nos permite saber desde donde ha sido llamada. Si establecemos un punto de parada en `funcionA` y cuando estemos en este punto de parada ejecutamos `where` podemos consultar desde que función ha sido llamado.
+
+```gdb
+br funcionA
+r
+where
+```
 
 
 ## 6 - Malas prácticas
