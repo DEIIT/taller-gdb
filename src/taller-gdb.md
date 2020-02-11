@@ -340,6 +340,16 @@ continue
 
 El `cout` de decimal nos mostrará 99.2.
 
+
+#### Establecer argumentos: set args
+
+Con la orden `set` podemos establecer los parámetros de ejecución, evitando tener que ponerlos en la orden `run` cada vez que lo ejecutemos.
+
+```gdb
+set args arg1 arg2 argN
+```
+
+
 ### Continuar: continue
 
 Con el comando `continue` podemos reanudar la ejecución del programa. Se ejecutará con normalidad hasta que encuentre el siguiente punto de parada o finalice.
@@ -398,6 +408,46 @@ Y para dejar de mostrar una variable usaremos el comando `undisplay`:
 undisplay entero
 ```
 
+
+### Ejecutar por pasos: step, next y finish
+
+Ya hemos visto como detener la ejecución y como consultar el valor de las distintas variables y estado de la ejecución. GDB también nos permite continuar la ejecución de forma especial, continuando linea a linea, entrando a llamadas a subrutinas o hasta finalizar la ejecución de la función.
+
+#### step
+
+Con esta orden continuaremos la ejecución de nuestro programa linea a linea con la característica de que si encuentra una llamada a una subrutina entrará en esta y continuará con su ejecución.
+
+Podemos usarla sin parámetros, lo que avanzará una linea de código, o con un entero como parámetro, con lo que avanzará tantas lineas como le pasemos por parametro.
+
+Por ejemplo, para continuar 5 lineas.
+
+```gdb
+step 4
+```
+
+#### next
+
+Al igual que con `step` continuaremos la ejecución linea a linea, con la diferencia de que usando `next` no entraremos en las llamadas a subrutinas, es decir, se ejecutará la subrutina y continuará en la misma rutina en la que estaba.
+
+```gdb
+next
+```
+
+Al igual que con `step` le podemos pasar un entero como argumento para avanzar tantas lineas como indiquemos en este entero.
+
+```gdb
+next 4
+```
+
+#### finish
+
+Con esta orden continuaremos la ejecución hasta finalizar la subrutina en la que estemos. Esto quiere decir que aunque no exista un punto de parada al final de dicha subrutina si se detendrá la ejecución.
+
+```gdb
+finish
+```
+
+Además nos mostrará el valor que devuelve la subrutina.
 
 ### Activar y desactivar puntos de parada: enable y disable
 
@@ -485,26 +535,14 @@ delete display entero
 
 
 
-### Establecer argumentos: set args
-
-set args
-
-o cargar gdb con --args
 
 
 
 
 
-### Ejecutar por pasos: step, next y finish
 
-step -> entra en subrutinas
-
-next -> no entra en subrutinas
-
-finish -> ejecuta hasta que acabe la función
 
 ### Consultar pila de llamadas: where
-
 
 
 ## 6 - Malas prácticas
