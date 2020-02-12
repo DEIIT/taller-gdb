@@ -560,4 +560,11 @@ where
 
 ## 6 - Malas prácticas
 
+### Salidas por pantalla
+
+
+
+
 ## 7 - Otros programas de depuración
+
+### Valgrind
