@@ -9,6 +9,9 @@ titlepage-rule-color: 272d2d
 toc-own-page: true
 logo: ".make/deiithorizontal.png"
 lang: "es"
+linkcolor: orange
+urlcolor: orange
+
 #header-includes:
 ...
 

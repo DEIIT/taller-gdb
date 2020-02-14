@@ -2,13 +2,13 @@
 
 GDB (GNU Debugger) es un software desarrollado por el proyecto GNU que te permite ver que está pasando dentro de un programa cuando este se esta ejecutando (o cuando explota).
 
-En este PDF explicaremos el uso básico de esta herramienta, desde como instalarlo a como comenzar a usarlo de forma básica, pero que sirva de introducción al uso de depuradores, una herramienta imprescindible en el desarrollo de conocimientos de cualquier persona que se dedique a desarrollar software ayudándote a ser un buen programador (o dejar de ser uno malo).
+En este PDF explicaremos el uso básico de esta herramienta, desde como instalarlo a como comenzar a usarlo de forma básica, pero que sirva de introducción al uso de depuradores. Es una herramienta imprescindible en el desarrollo de conocimientos de cualquier persona que se dedique a desarrollar software ayudándote a ser un buen programador (o dejar de ser uno malo).
 
-GDB fue desarrollado por Richard Stallman en 1986, continuando su desarrollo actualmente el proyecto GNU. Como todos los programas de GNU se trata de software libre, y podéis consultar su código [aquí](https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git)
+GDB fue desarrollado por Richard Stallman en 1986, continuando su desarrollo actualmente el proyecto GNU. Como todos los programas de GNU se trata de software libre, y podéis consultar su código [aquí](https://sourceware.org/git/gitweb.cgi?p=binutils-gdb.git).
 
 ## 2 - Para qué sirve GDB
 
-GDB tiene cuatro características principales, que en conjunto te permitirán realizar muchas más, para ayudarte a encontrar y resolver errores en tu código:
+GDB tiene cuatro funcionalidades básicas, que usadas en conjunto te permitirán encontrar y resolver errores en tu código:
 
 - Ejecutar tu programa, avisando de cualquier cosa que afecte a su ejecución.
 - Detener la ejecución de tu programa en puntos específicos usando condiciones específicas.
@@ -147,17 +147,17 @@ Una forma básica es ejecutar solo el comando `list`
 list
 ```
 
-Con esto podemos consultar 10 lineas alrededor del main.
+Con esto podemos consultar 10 líneas alrededor del main.
 
-Otra opción es usar un parámetro, que indicará el número de linea a consultar.
+Otra opción es usar un parámetro, que indicará el número de línea a consultar.
 
 ```gdb
 list 20
 ```
 
-Con esto consultaremos 10 lineas alrededor de la linea 20.
+Con esto consultaremos 10 líneas alrededor de la línea 20.
 
-Si queremos ver un rango de lineas, basta con separarlas con una coma, por ejemplo, para consultar de la linea 20 a la 40 basta con ejecutar:
+Si queremos ver un rango de líneas, basta con separarlas con una coma, por ejemplo, para consultar de la línea 20 a la 40 basta con ejecutar:
 
 ```gdb
 list 20,40
@@ -169,13 +169,13 @@ Otra opción es usar los nombres de las funciones, por ejemplo, si queremos ver 
 list prueba
 ```
 
-En caso de que nuestro proyecto tenga más de un fichero podemos seleccionar el fichero donde consultar si antes de la linea, el rango de lineas o la función especificamos el nombre del fichero seguido de "`:`".
+En caso de que nuestro proyecto tenga más de un fichero podemos seleccionar el fichero donde consultar si antes de la línea, el rango de líneas o la función especificamos el nombre del fichero seguido de "`:`".
 
 ```gdb
 list fichero2.cpp:20,40
 ```
 
-Esto nos mostrará el intervalo de lineas de la 20 a la 40 del fichero `fichero2.cpp`.
+Esto nos mostrará el intervalo de líneas de la 20 a la 40 del fichero `fichero2.cpp`.
 
 Como abreviatura puedes usar `l`.
 
@@ -195,9 +195,9 @@ Para depurar un programa una de las opciones más útiles que nos ofrece GDB son
 
 Los puntos de parada nos permiten detener la ejecución del programa en el punto que nosotros queramos y si se cumplen ciertas condiciones.
 
-Para establecer un punto de parada podemos usar el comando `break` seguido del número de la linea o el nombre de la función.
+Para establecer un punto de parada podemos usar el comando `break` seguido del número de la línea o el nombre de la función.
 
-Por ejemplo, para poner un punto de parada en la linea 12:
+Por ejemplo, para poner un punto de parada en la línea 12:
 
 ```gdb
 break 12
@@ -230,7 +230,7 @@ br fichero2.cpp:prueba
 
 Con el comando `run` ejecutaremos el programa.
 
-El programa se ejecutará de forma normal, detendrá su ejecución si encuentra un punto de parada y finalizará la ejecución una vez acabe el programa (cuidado, el llegar a un punto de parada no implica finalizar el programa, simplemente detendrá la ejecución de instrucciones, y como veremos en la siguiente sección, continuará desde este punto).
+El programa se ejecutará de forma normal, detendrá su ejecución si encuentra un punto de parada y finalizará la ejecución una vez acabe el programa (cuidado, llegar a un punto de parada no implica finalizar el programa, simplemente detendrá la ejecución de instrucciones, y como veremos en la siguiente sección, continuará desde este punto).
 
 ```gdb
 run
@@ -295,7 +295,7 @@ Y ejecutamos el programa:
 run
 ```
 
-El programa se detendrá en la linea 10, sin ejecutar el contenido de esta. En este punto podemos preguntar a GDB el valor de las distintas variables del programa con `print`:
+El programa se detendrá en la línea 10, sin ejecutar el contenido de esta. En este punto podemos preguntar a GDB el valor de las distintas variables del programa con `print`:
 
 ```gdb
 print entero
@@ -326,7 +326,7 @@ Ya que en el contexto actual de la ejecución todavía no se ha creado la variab
 
 GDB también nos permite modificar el valor de las distintas variables con la orden `set`.
 
-Siguiendo el ejemplo anterior, con la ejecución parada en la linea 10, ejecutamos:
+Siguiendo el ejemplo anterior, con la ejecución parada en la línea 10, ejecutamos:
 
 ```gdb
 set decimal=99.2f
@@ -376,14 +376,14 @@ c 5
 
 ### Consultar información: info
 
-El comando `info` nos servirá como un comando genérico para consultar información, con este comando podremos consultar de todo tipo de información, desde CPU's, información sobre la memoria del sistema, las macros disponibles, etc. Uno de los más importantes será la información sobre los puntos de parada (`breakpoints`).
+El comando `info` nos servirá como un comando genérico para consultar todo tipo de información, desde CPU's, información sobre la memoria del sistema, las macros disponibles, etc. Uno de los más importantes será la información sobre los puntos de parada (`breakpoints`).
 
 
 ```gdb
 info br
 ```
 
-Vemos como con este comando GDB nos mostrará información sobre los puntos de parada, en orden, el número de parada, el tipo, si el punto de parada debe permanecer, si está activado, la dirección en hexadecimal del punto de parada (para depurar ensamblador) y por último en que función y linea está este punto de parada. Por defecto el punto de parada estará activado.
+Vemos como con este comando GDB nos mostrará información sobre los puntos de parada, en orden, el número de parada, el tipo, si el punto de parada debe permanecer, si está activado, la dirección en hexadecimal del punto de parada (para depurar ensamblador) y por último en que función y línea está este punto de parada. Por defecto el punto de parada estará activado.
 
 Otro ejemplo, en el que consultamos las CPU's del sistema:
 
@@ -413,17 +413,17 @@ undisplay entero
 
 ### Ejecutar por pasos: step, next y finish
 
-Ya hemos visto como detener la ejecución y como consultar el valor de las distintas variables y estado de la ejecución. GDB también nos permite continuar la ejecución de forma especial, continuando linea a linea, entrando a llamadas a subrutinas o hasta finalizar la ejecución de la función.
+Ya hemos visto como detener la ejecución y como consultar el valor de las distintas variables y estado de la ejecución. GDB también nos permite continuar la ejecución de forma especial, continuando línea a línea, entrando a llamadas a subrutinas o hasta finalizar la ejecución de la función.
 
 #### step
 
 \
 
-Con esta orden continuaremos la ejecución de nuestro programa linea a linea con la característica de que si encuentra una llamada a una subrutina entrará en esta y continuará con su ejecución.
+Con esta orden continuaremos la ejecución de nuestro programa línea a línea con la característica de que si encuentra una llamada a una subrutina entrará en esta y continuará con su ejecución.
 
-Podemos usarla sin parámetros, lo que avanzará una linea de código, o con un entero como parámetro, con lo que avanzará tantas lineas como le pasemos por parametro.
+Podemos usarla sin parámetros, lo que avanzará una línea de código, o con un entero como parámetro, con lo que avanzará tantas líneas como le pasemos por parametro.
 
-Por ejemplo, para continuar 5 lineas.
+Por ejemplo, para continuar 5 líneas.
 
 ```gdb
 step 4
@@ -433,13 +433,13 @@ step 4
 
 \
 
-Al igual que con `step` continuaremos la ejecución linea a linea, con la diferencia de que usando `next` no entraremos en las llamadas a subrutinas, es decir, se ejecutará la subrutina y continuará en la misma rutina en la que estaba.
+Al igual que con `step` continuaremos la ejecución línea a línea, con la diferencia de que usando `next` no entraremos en las llamadas a subrutinas, es decir, se ejecutará la subrutina y continuará en la misma rutina en la que estaba.
 
 ```gdb
 next
 ```
 
-Al igual que con `step` le podemos pasar un entero como argumento para avanzar tantas lineas como indiquemos en este entero.
+Al igual que con `step` le podemos pasar un entero como argumento para avanzar tantas líneas como indiquemos en este entero.
 
 ```gdb
 next 4
@@ -511,9 +511,9 @@ Para eliminar puntos de parada podemos usar dos ordenes, `clear` y `delete`.
 
 \
 
-El uso de la orden `clear` es muy simple: `clear <linea_breakpoint>`
+El uso de la orden `clear` es muy simple: `clear <línea_breakpoint>`
 
-Por ejemplo, para eliminar el punto de parada en la linea 20 del fichero `prueba.cpp`:
+Por ejemplo, para eliminar el punto de parada en la línea 20 del fichero `prueba.cpp`:
 
 ```gdb
 clear prueba.cpp:20
@@ -525,7 +525,7 @@ Si queremos eliminar todos los puntos de parada podemos ejecutar esta orden sin 
 clear
 ```
 
-Hay que tener en cuenta que `clear` no funciona con el número del punto de parada, es necesario especificar la linea donde se encuentra
+Hay que tener en cuenta que `clear` no funciona con el número del punto de parada, es necesario especificar la línea donde se encuentra
 
 #### delete
 
