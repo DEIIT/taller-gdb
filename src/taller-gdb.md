@@ -321,6 +321,12 @@ No symbol "entero_inutil" in current context.
 
 Ya que en el contexto actual de la ejecución todavía no se ha creado la variable `entero_inutil`.
 
+Como abreviatura puedes usar `p`:
+
+```gdb
+p entero_inutil
+```
+
 
 ### Modificar el valor de variables: set
 
@@ -429,6 +435,12 @@ Por ejemplo, para continuar 5 líneas.
 step 4
 ```
 
+Como abreviatura puedes usar `s`:
+
+```gdb
+s 5
+```
+
 #### next
 
 \
@@ -445,11 +457,17 @@ Al igual que con `step` le podemos pasar un entero como argumento para avanzar t
 next 4
 ```
 
+Como abreviatura puedes usar `n`:
+
+```gdb
+n 5
+```
+
 #### finish
 
 \
 
-Con esta orden continuaremos la ejecución hasta finalizar la subrutina en la que estemos. Esto quiere decir que aunque no exista un punto de parada al final de dicha subrutina si se detendrá la ejecución.
+Con esta orden continuaremos la ejecución hasta finalizar la subrutina en la que estemos. Esto quiere decir que aunque no exista un punto de parada al final de dicha subrutina se detendrá la ejecución.
 
 ```gdb
 finish
@@ -459,7 +477,7 @@ Además nos mostrará el valor que devuelve la subrutina.
 
 ### Activar y desactivar puntos de parada: enable y disable
 
-Como hemos visto con la orden `info br` los puntos de parada pueden estar activados o desactivados, el comando `enable` y `disable`.
+Como hemos visto con la orden `info br` los puntos de parada pueden estar activados o desactivados, controlaremos el estado de los puntos de parada con los comandos `enable` y `disable`.
 
 El comando `disable` nos permitirá desactivar puntos de parada o expresiones de `display` sin eliminarlas, es decir, las podremos reactivar usando el comando `enable`.
 
