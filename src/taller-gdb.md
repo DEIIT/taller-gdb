@@ -567,7 +567,7 @@ delete display entero
 
 ### Consultar pila de llamadas: where
 
-Otra de las funciones más interesantes que nos ofrece GDB es el comando `where`. Este comando nos dará información de la pila de llamadas y donde nos encontramos en la ejecución del programa, por ejemplo, si `funcionA` es llamada desde distintos lugares, por ejemplo `main` y `prueba` este comando nos permite saber desde donde ha sido llamada. Si establecemos un punto de parada en `funcionA` y cuando estemos en este punto de parada ejecutamos `where` podemos consultar desde que función ha sido llamado.
+Otra de las funciones más interesantes que nos ofrece GDB es el comando `where`. Este comando nos dará información de la pila de llamadas y donde nos encontramos en la ejecución del programa, si `funcionA` es llamada desde dos lugares, `main` y `prueba`, este comando nos permite saber desde cual de los dos ha sido llamada. Si establecemos un punto de parada en `funcionA` y cuando estemos en este punto de parada ejecutamos `where` podemos consultar desde que función ha sido llamado.
 
 ```gdb
 br funcionA
