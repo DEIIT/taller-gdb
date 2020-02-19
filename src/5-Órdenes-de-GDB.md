@@ -109,6 +109,38 @@ Una vez establecidos los *breakpoints*, podemos ejecutar el programa con `run`, 
 Al llegar a él, GDB frenará la ejecución del programa y nos comunicará el número de veces que se ha alcanzado este punto en la ejecución actual.
 Una vez frenada la ejecución, podemos establecer más *breakpoints*, analizar el programa en ese mismo punto y controlar manualmente el avance del programa.
 
+Otra opción que nos ofrecen los *breakpoints* es establecer un punto de parada si se cumple cierta condición. Por ejemplo con el siguiente código:
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main (int argc, char ** argv){
+
+	int entero = 1;
+
+	cin >> entero;
+
+	if (entero > 0){
+		cout << "El número introducido es positivo." << endl;
+	} else if (entero < 0){
+		cout << "El número introducido es negativo." << endl;
+	}
+
+
+}
+
+```
+
+Podemos establecer el siguiente punto de parada:
+
+```gdb
+break 11 if entero == 0
+```
+
+Esto hará que al ejecutar el programa solo se detenga si el entero introducido vale 0.
+
 ## Controlar el manualmente el avance del programa: `step`, `next`, `finish` y `continue`
 
 Para controlar manualmente el avance del programa tras alcanzar un *breakpoint* podemos usar `step` y `next`, que ejecutan el programa línea a línea con algunas diferencias, y `finish`, que ejecuta el resto de la función.
