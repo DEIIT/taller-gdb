@@ -1,24 +1,17 @@
-# 3 - Instalación de GDB
+# 2 - Instalación de GDB
 
 Puedes instalar GDB en prácticamente todos los sistemas basados en UNIX, como GNU/Linux, \*BSD o MacOS y en Microsoft Windows.
 Nosotros recomendamos instalarlo a través de un instalador de paquetes:
 
-## Distribuciones basadas en Debian
-
 ```sh
+# Distribuciones basadas en Debian
 sudo apt update
 sudo apt install gdb
-```
 
-## Distribuciones basadas en Red Hat/Fedora
-
-```sh
+# Distribuciones basadas en Red Hat/Fedora
 sudo dnf install gdb
-```
 
-## Distribuciones basadas en Arch Linux
-
-```sh
+# Distribuciones basadas en Arch Linux
 sudo pacman -S gdb
 ```
 
@@ -28,23 +21,14 @@ Si utilizas cualquier otra distribución de Linux o sistema operativo en cuyos r
 Para ello, [descarga el código](https://ftp.gnu.org/gnu/gdb/) directamente desde el servidor `ftp` de GNU.
 Una vez esté descargado, sigue estos pasos:
 
-- Extracción del paquete
-
 ```sh
+# Extracción del paquete
 tar -xvzf gdb-<version>.tar.gz
-```
-
-- Configurarción y compilación
-
-```sh
+# Configurarción y compilación
 cd gdb-<version>
 ./configure
 make
-```
-
-- Instalación
-
-```sh
+# Instalación
 sudo make install
 ```
 

@@ -1,4 +1,4 @@
-# 5 - Órdenes de GDB
+# 4 - Órdenes de GDB
 
 ## Consultar el manual: `help`
 Antes de empezar es imperativo saber cómo acceder a información de apoyo en caso de que no sepamos hacer algo.

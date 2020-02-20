@@ -1,4 +1,4 @@
-# 4 - Requisitos para depurar con GDB
+# 3 - Requisitos para depurar con GDB
 
 GDB puede utilizarse para depurar casi cualquier ejecutable.
 Sin embargo, si el fichero que se quiere depurar no ha sido compilado con opciones de depuración específicas, GDB únicamente mostrará código ensamblador, ya que es lo único que contiene el ejecutable[^asm].
