@@ -33,7 +33,7 @@ Hecho esto, obtenemos el ejecutable `hola` que podemos abrir en GDB:
 gdb hola
 ```
 
-Si nuestro ejecutable debiera recibir argumentos para su correcto funcionamiento, podemos usar la opción `-args` para indicarlo.
+Si nuestro ejecutable necesitase recibir argumentos para su correcto funcionamiento, podemos usar la opción `-args` para indicarlo.
 Así se abriría en GDB un programa que indica si el número pasado como argumento es primo:
 
 ```sh
