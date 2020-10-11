@@ -1,6 +1,6 @@
 # 2 - Instalación de GDB
 
-Puedes instalar GDB en prácticamente todos los sistemas basados en UNIX, como GNU/Linux, \*BSD o MacOS y en Microsoft Windows.
+Puedes instalar GDB en prácticamente todos los sistemas basados en UNIX, como GNU/Linux, \*BSD o macOS y en Microsoft Windows.
 Nosotros recomendamos instalarlo a través de un instalador de paquetes:
 
 ```sh
@@ -24,7 +24,7 @@ Una vez esté descargado, sigue estos pasos:
 ```sh
 # Extracción del paquete
 tar -xvzf gdb-<version>.tar.gz
-# Configurarción y compilación
+# Configuración y compilación
 cd gdb-<version>
 ./configure
 make
@@ -33,9 +33,8 @@ sudo make install
 ```
 
 Por defecto, GDB se instalará en `/usr/local/bin` y `/usr/local/lib`.
-Puedes comprobar que está instalado mediante una llamada a tu gestor de paquetes ocomprobando la versión de gdb con el argumento `--version`:
+Puedes comprobar que está instalado mediante una llamada a tu gestor de paquetes o comprobando la versión de gdb con el argumento `--version`:
 
 ```sh
 gdb --version
 ```
-
