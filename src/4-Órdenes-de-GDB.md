@@ -78,7 +78,7 @@ run
 run 5 // Ejecutado pasando "5" como argumento
 ```
 
-Si queremos redireccionar la entrada o salida estándar del programa a ficheros, podemos hacerlo con los operadores de redicción `<`, `>` ó `>>`:
+Si queremos redireccionar la entrada o salida estándar del programa a ficheros, podemos hacerlo con los operadores de redirección `<`, `>` ó `>>`:
 
 ```gdb
 run > salida.log
@@ -94,7 +94,7 @@ set args arg1 arg2 ... argN
 
 A la hora de depurar un programa querremos ver el estado de las variables en un punto concreto o centrarnos en una función en concreto.
 Para esto existen los *breakpoints* o puntos de parada, que son marcas en la secuencia de sentencias que forman el código en las que el depurador pone en pausa su ejecución nada más llegar.
-Esto no significa que el programa deja de ejecutarse, existen órdenes para continuar la ejecución de programa, sino que frena su ejecución para poder evaluarlo en un punto en concreto.
+Esto no significa que el programa deja de ejecutarse, existen órdenes para continuar la ejecución del programa, sino que frena su ejecución para poder evaluarlo en un punto en concreto.
 
 Los *breakpoints* se crean con la orden `break`, que puede abreviarse como `br`.
 Al igual que con la orden `list`, podemos especificar la línea o función exacta en la que queremos parar, así como el fichero al que pertenecen éstas:
@@ -150,7 +150,7 @@ Para controlar manualmente el avance del programa tras alcanzar un *breakpoint* 
 Esta orden, abreviable como `s`, nos permite continuar la ejecución del programa línea a línea, es decir, cada ejecución de `step` equivale a la ejecución de una línea de código.
 Si el siguiente paso es una llamada a una subrutina, `step` entrará en ella y continuará la ejecución en su interior hasta volver a la original.
 
-Podemos usarla sin argumentos para avanzar una única línea de código cada vez o pasándole un enetero, con lo que avanzará tantas líneas como le indiquemos:
+Podemos usarla sin argumentos para avanzar una única línea de código cada vez o pasándole un entero, con lo que avanzará tantas líneas como le indiquemos:
 
 ```gdb
 step
@@ -171,7 +171,7 @@ next 4
 ### `finish`
 
 Para ejecutar el programa hasta que la rutina en la que nos encontramos finalice utilizamos la orden `finish`.
-Esta orden continúa la ejecución del programa hasta que la rutina devuelva un valor (o finalize, en caso de `void`) y frena la ejecución en ese punto independientemente de la existencia de un *breakpoint* al final de la misma.
+Esta orden continúa la ejecución del programa hasta que la rutina devuelva un valor (o finalice, en caso de `void`) y frena la ejecución en ese punto independientemente de la existencia de un *breakpoint* al final de la misma.
 Al llegar al final, nos mostrará el valor devuelto si lo hubiera.
 Esta orden no recibe argumentos:
 
@@ -187,7 +187,7 @@ Con esta orden, abreviable como `c` reanudamos la ejecución del programa para q
 continue
 ```
 
-Si esperamos llegar a un punto de parada más de una vez (por ejemplo, si estamos dentro de un bucle o de una función que prevemos que será llamada varias veces) y nos interesa detener la ejecución cuando llegue a la *n*-ésima vez a dicho punto de parada, podemos pasarle como parámetro el número de *breakpoints* que queremos que ignorede forma que continuará la ejecución del programa sin parar en este punto de parada hasta la N-ésima vez que lo alcance.
+Si esperamos llegar a un punto de parada más de una vez (por ejemplo, si estamos dentro de un bucle o de una función que prevemos que será llamada varias veces) y nos interesa detener la ejecución cuando llegue a la *n*-ésima vez a dicho punto de parada, podemos pasarle como parámetro el número de *breakpoints* que queremos que ignore de forma que continúe la ejecución del programa sin parar en este punto de parada hasta la *n*-ésima vez que lo alcance.
 El *breakpoint* que se ignora es únicamente el que generó la última parada, por lo que GDB podrá parar en otros que se encuentre a lo largo de la ejecución.
 
 ```gdb
@@ -216,7 +216,7 @@ int main (int argc, char** argv) {
 }
 ```
 
-Establzcamos un punto de parada en la línea en la que mostramos un entero y ejecutemos el programa:
+Establezcamos un punto de parada en la línea en la que mostramos un entero y ejecutemos el programa:
 
 ```gdb
 break 8
@@ -284,7 +284,7 @@ set decimal=99.2f
 continue
 ```
 
-El `std::cout` de `decimal` nos mostrará que éste vale `99.2`.
+El `std::cout` de `decimal` nos mostrará que este vale `99.2`.
 
 ## Gestionar los puntos de parada y *displays*: `enable` y `disable`
 
@@ -295,7 +295,7 @@ Mediante la orden `info` podemos obtener la siguiente información sobre los pun
 - Si el punto de parada debe permanecer.
 - Si el punto de parada está activado.
 - La dirección de memoria (en hexadecimal) del punto de parada[^brasm].
-- En que función y línea está este punto de parada.
+- En qué función y línea está este punto de parada.
 
 ```gdb
 info br
@@ -339,7 +339,7 @@ Para eliminar puntos de parada podemos usar las órdenes `clear` y `delete`.
 
 ### `clear`
 
-La orden `clear` elimnina el *breakpoint* de la línea pasada como argumento o todos los puntos de parada si no se le pasa ninguna.
+La orden `clear` elimina el *breakpoint* de la línea pasada como argumento o todos los puntos de parada si no se le pasa ninguna.
 Por ejemplo, para eliminar el punto de parada en la línea 20 del fichero `prueba.cpp`:
 
 ```gdb
@@ -347,7 +347,7 @@ clear prueba.cpp:20
 clear
 ```
 
-Es importante tener en cuenta que `clear` no funciona con el índice del punto de parada, sino que es necesario especificar la línea donde éste se encuentra.
+Es importante tener en cuenta que `clear` no funciona con el índice del punto de parada, sino que es necesario especificar la línea donde este se encuentra.
 
 ### delete
 
@@ -368,7 +368,7 @@ delete display entero
 
 Otra de las funciones más interesantes que nos ofrece GDB es la orden `where`, que nos ofrece información sobre la pila de llamadas y sobre dónde nos encontramos en la ejecución del programa.
 Por ejemplo, si `funcion1` es llamada desde dos lugares, `main` y `prueba`, este comando nos permite saber desde cuál de los dos ha sido llamada.
-Si establecemos un punto de parada en `funcion1` y, cuando estemos en este punto de parada, ejecutamos `where`,  podemos consultar desde que función ha sido llamado.
+Si establecemos un punto de parada en `funcion1` y, cuando estemos en este punto de parada, ejecutamos `where`,  podemos consultar desde qué función ha sido llamado.
 
 ```gdb
 br funcion1
@@ -382,4 +382,4 @@ Por último, salir de GDB es muy simple.
 Basta con enviar un `EOF` o fin de fichero, que en UNIX y GNU/Linux es `^D` (`Ctrl+D`), o escribir la orden `quit`, que puede abreviarse como `q`.
 
 [^brasm]: Para depurar en ensamblador.
-[^setargs]: Éste es un caso particular de la orden `set`, que veremos más adelante.
+[^setargs]: Este es un caso particular de la orden `set`, que veremos más adelante.
