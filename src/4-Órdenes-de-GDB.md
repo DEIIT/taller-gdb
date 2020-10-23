@@ -90,6 +90,12 @@ Si queremos ejecutar siempre el programa con los mismos argumentos, podemos usar
 set args arg1 arg2 ... argN
 ```
 
+También podemos incluir estos argumentos en la llamada a la orden `gdb`, de forma que todas las ejecuciones con `run` los tendrán en cuenta:
+
+```sh
+gdb hola --args arg1 arg2 ... argN
+```
+
 ## Establecer puntos de parada (*breakpoints*): `break`
 
 A la hora de depurar un programa querremos ver el estado de las variables en un punto concreto o centrarnos en una función en concreto.
@@ -127,10 +133,7 @@ int main (int argc, char ** argv){
 	} else if (entero < 0){
 		cout << "El número introducido es negativo." << endl;
 	}
-
-
 }
-
 ```
 
 Podemos establecer el siguiente punto de parada:
