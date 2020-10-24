@@ -2,7 +2,7 @@
 
 GDB (GNU Debugger) es un software desarrollado por el proyecto GNU que permite ver qué está pasando dentro de un programa cuando éste se está ejecutando (o cuando explote inevitablemente).
 A lo largo de este documento explicaremos el uso básico de esta herramienta, desde cómo instalarlo a cómo comenzar a usarlo de forma básica de forma que sirva como introducción a la depuración de programas para usuarios de cualquier nivel.
-Ésta es una herramienta imprescindible en el abanico de recursos de cualquier persona que se dedique a desarrollar software, ya que el usuario adquiere una eficiencia abismal a la hora de programar con respecto a aquellos que depuran con mensaje por salida estándar.
+Esta es una herramienta imprescindible en el abanico de recursos de cualquier persona que se dedique a desarrollar software, ya que el usuario adquiere una eficiencia abismal a la hora de programar con respecto a aquellos que depuran con mensaje por salida estándar.
 
 GDB fue desarrollado por Richard Stallman en 1986, continuando su desarrollo actualmente el proyecto GNU.
 Como todos los programas de GNU, GDB es software libre.
